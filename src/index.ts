@@ -4,7 +4,7 @@
  *
  * By:      Aidan Lalonde-Novales (mostly Mr Coxall)
  * Version: 1.0
- * Since:   2022-10-27
+ * Since:   2022-11-01
  */
 
 import Bike from './Bike'
@@ -26,6 +26,10 @@ console.log('Accelerate by 15:')
 bmxBike.accelerate(15)
 bmxBike.status()
 
+console.log('Braking, 5 of power for 2 seconds:')
+bmxBike.braking(5, 2)
+bmxBike.status()
+
 console.log('Ring Bell:')
 bmxBike.ringBell()
 
@@ -39,16 +43,16 @@ truck.setLicensePlate('HGC-3456F')
 console.log('Truck Status:')
 truck.status()
 
-console.log('Accelerating, 10 of power for 10 seconds.')
+console.log('Accelerating, 10 of power for 10 seconds:')
 truck.accelerate(10, 10)
 console.log(`\nNew speed (1): ${Number(truck.getSpeed())}\n`)
 
-console.log('Braking, 10 of power for 5 sec.')
-truck.braking(10, 5)
-console.log(`\nNew speed (2): ${Number(truck.getSpeed())}\n`)
+console.log('Set tire Air Pressure to 5:')
+truck.setAirPressure(5)
+console.log(`\nNew Air Pressure: ${Number(truck.getAirPressure())}\n`)
 
-console.log('Applying air pressure of 10:')
-truck.airPressure(10)
-console.log(`\nNew speed (3): ${Number(truck.getSpeed())}\n`)
+console.log('Braking, 10 of power for 2 seconds:')
+truck.braking(10, 2)
+console.log(`\nNew speed (2): ${Number(truck.getSpeed())}\n`)
 
 console.log('Done.')

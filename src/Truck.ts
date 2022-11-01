@@ -4,7 +4,7 @@
  *
  * By:      Aidan Lalonde-Novales
  * Version: 1.0
- * Since:   2022-10-27
+ * Since:   2022-11-01
  */
 
 import Vehicle from './Vehicle'
@@ -12,6 +12,7 @@ import Vehicle from './Vehicle'
 class Truck extends Vehicle {
   // declare new field
   private licensePlate = ''
+  private airPressure = 0
 
   // status method - prints all fields applied to truck object
   status(): void {
@@ -20,6 +21,7 @@ class Truck extends Vehicle {
       -> Max Speed: ${super.getMaxSpeed()}
       -> Color: ${super.getColor()}
       -> License Plate: ${this.licensePlate}
+      -> Air Pressure: ${this.airPressure}
     `)
   }
 
@@ -33,9 +35,21 @@ class Truck extends Vehicle {
     return this.licensePlate
   }
 
-  // airPressure method - add air pressure and reduces speed
-  airPressure(airProvided: number): void {
-    super.setSpeed(super.getSpeed() - airProvided / 2)
+  // setLicensePlate method - licensePlate setter
+  setAirPressure(airPressureInput: number): void {
+    this.airPressure = airPressureInput
+  }
+
+  // getLicensePlate method - licensePlate getter
+  getAirPressure(): number {
+    return this.airPressure
+  }
+
+  // Braking method - add air pressure and braking parameters to reduces speed
+  braking(brakePower: number, brakeTime: number): void {
+    super.setSpeed(
+      super.getSpeed() - brakePower * brakeTime - this.airPressure * brakeTime
+    )
     if (super.getSpeed() < 0) {
       super.setSpeed(0)
     }

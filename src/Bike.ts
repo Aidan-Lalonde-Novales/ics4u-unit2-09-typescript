@@ -4,7 +4,7 @@
  *
  * By:      Aidan Lalonde-Novales
  * Version: 1.0
- * Since:   2022-10-27
+ * Since:   2022-11-01
  */
 
 import Vehicle from './Vehicle'
@@ -37,11 +37,14 @@ class Bike extends Vehicle {
   accelerate(appliedPower: number): void {
     this.cadence += appliedPower
     super.setSpeed(this.cadence * 2)
+    if (super.getSpeed() > super.getMaxSpeed()) {
+      super.setSpeed(super.getMaxSpeed())
+    }
   }
 
   // ringBell method - prints 'Ding Ding!'
   ringBell(): void {
-    console.log('\nDing Ding!')
+    console.log('Ding Ding!')
   }
 }
 
